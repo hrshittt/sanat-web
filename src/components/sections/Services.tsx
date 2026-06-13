@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SERVICES } from "@/lib/constants";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { SECTIONS } from "@/lib/sections";
+import { InfiniteImageField } from "@/components/ui/InfiniteImageField";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -49,7 +50,10 @@ export function Services() {
       ref={sectionRef}
       className="relative bg-gradient-to-b from-cinema-red via-cinema-red to-cinema-black py-32 md:py-48 overflow-visible"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.2)_0%,transparent_50%)] pointer-events-none" />
+      <div className="absolute inset-0 z-0 opacity-40 md:opacity-50 pointer-events-none mix-blend-screen">
+        <InfiniteImageField />
+      </div>
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,0,0,0.2)_0%,transparent_50%)] pointer-events-none z-10" />
       <div className="section-pad relative z-10">
         <SectionHeader
           number={SECTIONS.whatWeCreate.number}

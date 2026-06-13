@@ -146,6 +146,12 @@ export const TESTIMONIALS = [
     author: "Nivedita",
     brand: "Savana",
   },
+  {
+    quote:
+      "You have been a true blessing to me. You’re an incredibly talented visionary, and it has been amazing to watch your growth. I’m excited to see your next project and the new journey ahead. Wishing you nothing but success and happiness!!!! Super excitedddd🩷🩷",
+    author: "Sifat Mahendru",
+    brand: "",
+  },
 ] as const;
 
 export const PROJECT_TYPES = [
