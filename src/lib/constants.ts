@@ -15,7 +15,7 @@ export const FOUNDER = {
   name: "Sanat Arora",
   image: "/founder/IMG_7993.jpg",
   heroImage: "/founder/img_1111.JPG",
-  video: "/founder/Timeline 1 (2).mov",
+  video: "/founder/Timeline 1 (2).mp4",
   roles: ["Visual Storyteller.", "Filmmaker.", "Founder of 91-11 Productions."],
   openingQuote: "Cinema begins long before the camera starts rolling.",
   story: [
