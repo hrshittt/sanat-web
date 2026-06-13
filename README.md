@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 91-11 Productions — Cinematic Portfolio
 
-## Getting Started
+Premium cinematic portfolio for **91-11 Productions**, founded by **Sanat Arora**.
 
-First, run the development server:
+> Built to Make Brands Unforgettable.
+
+## Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | Next.js 15, TypeScript, Tailwind CSS v4 |
+| Motion | Framer Motion, GSAP ScrollTrigger, Lenis |
+| 3D | Three.js (minimal hero ambient particles) |
+| Media | Cloudinary-ready URLs |
+| CMS | Sanity (optional — falls back to static projects) |
+| API | Express.js inquiry server + Next.js API route |
+| Deploy | Vercel |
+
+## Quick Start
 
 ```bash
+# Install frontend dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Express API (optional)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cd server
+npm install
+cp ../.env.example .env
+npm run dev
+```
 
-## Learn More
+Set `NEXT_PUBLIC_API_URL=http://localhost:4000` in `.env.local` for the contact form to use Express. Without it, submissions use `/api/inquiry` on Next.js.
 
-To learn more about Next.js, take a look at the following resources:
+### Sanity CMS (optional)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create a project at [sanity.io](https://www.sanity.io)
+2. Copy project ID to `.env.local`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+```
 
-## Deploy on Vercel
+3. Run studio (requires `sanity` dev dependency):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npx sanity dev --config sanity/sanity.config.ts
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Without Sanity configured, the site uses curated static project data in `src/lib/projects.ts`.
+
+## Project Structure
+
+```
+src/
+  app/              # Next.js App Router pages
+  components/       # UI, sections, layout, Three.js
+  lib/              # Sanity, Cloudinary, constants, projects
+sanity/             # Sanity schema & config
+server/             # Express inquiry API
+```
+
+## Customization
+
+- **Hero / showreel video**: Replace URLs in `Hero.tsx` and `Showreel.tsx` with your Cloudinary public IDs
+- **Founder portrait**: Update image in `Founder.tsx`
+- **Projects**: Edit `src/lib/projects.ts` or add documents in Sanity
+- **Colors & grain**: `src/app/globals.css`
+
+## Deploy to Vercel
+
+1. Push to GitHub
+2. Import in Vercel
+3. Add environment variables from `.env.example`
+4. Deploy the Next.js app (root directory)
+
+Deploy Express separately (Railway, Render, Fly.io) or rely on the built-in Next.js `/api/inquiry` route.
+
+## Performance
+
+- Lazy-loaded images via `next/image`
+- Video `preload="metadata"` on heroes
+- Package import optimization for motion libraries
+- Static generation for project pages
+
+---
+
+© 91-11 Productions · Sanat Arora

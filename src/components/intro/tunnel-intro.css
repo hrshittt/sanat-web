@@ -1,0 +1,307 @@
+/* 91-11 Kinetic Typography Tunnel Intro */
+
+.tunnel-intro {
+  --tunnel-bg: #c9252b;
+  --tunnel-text: #111111;
+  --tunnel-perspective: 800px;
+  --tunnel-speed: 1;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--tunnel-bg);
+  overflow: hidden;
+  font-family: "Arial Black", "Impact", "Haettenschweiler", sans-serif;
+}
+
+.tunnel-intro__viewport {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: var(--tunnel-perspective);
+  perspective-origin: 50% 50%;
+}
+
+.tunnel-intro__scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Tunnel container — flies forward, then zooms to building */
+.tunnel-intro__tunnel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 1px;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.tunnel-intro__mover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Each wall of the tunnel */
+.tunnel-intro__face {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  overflow: visible;
+  background: var(--tunnel-bg);
+}
+
+.tunnel-intro__face--floor,
+.tunnel-intro__face--ceiling {
+  width: 140vmin;
+  height: 280vmin;
+  margin-left: -70vmin;
+  margin-top: -140vmin;
+}
+
+.tunnel-intro__face--left,
+.tunnel-intro__face--right {
+  width: 280vmin;
+  height: 140vmin;
+  margin-left: -140vmin;
+  margin-top: -70vmin;
+}
+
+.tunnel-intro__face--floor {
+  transform: rotateX(-90deg) translateZ(-70vmin);
+}
+
+.tunnel-intro__face--ceiling {
+  transform: rotateX(90deg) translateZ(-70vmin);
+}
+
+.tunnel-intro__face--left {
+  transform: rotateY(90deg) translateZ(-70vmin);
+}
+
+.tunnel-intro__face--right {
+  transform: rotateY(-90deg) translateZ(-70vmin);
+}
+
+/* Scrolling text texture on each face — dual strips for seamless loop */
+.tunnel-intro__texture {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-auto-rows: minmax(4.5vmin, auto);
+  gap: 0.15vmin 0.4vmin;
+  align-content: start;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.tunnel-intro__texture--a {
+  transform: translateZ(0);
+}
+
+.tunnel-intro__texture--b {
+  transform: translateZ(-140vmin);
+}
+
+.tunnel-intro__cell {
+  font-size: clamp(0.65rem, 2.2vmin, 1.35rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--tunnel-text);
+  text-align: center;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Vignette for depth */
+.tunnel-intro__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 45% 40% at 50% 50%,
+    transparent 0%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+  z-index: 2;
+}
+
+/* Skyscraper reveal */
+.tunnel-intro__building-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  perspective: 1200px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.tunnel-intro__building {
+  position: relative;
+  width: min(92vw, 520px);
+  height: 78vh;
+  transform-style: preserve-3d;
+  transform: rotateX(8deg) rotateY(-12deg);
+  will-change: transform, opacity;
+}
+
+.tunnel-intro__building-body {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #a81e24 0%,
+    var(--tunnel-bg) 35%,
+    #8b181e 100%
+  );
+  border-radius: 2px 2px 0 0;
+  box-shadow:
+    -20px 0 40px rgba(0, 0, 0, 0.3),
+    20px 0 40px rgba(0, 0, 0, 0.2),
+    0 -10px 60px rgba(0, 0, 0, 0.25);
+}
+
+.tunnel-intro__windows {
+  position: absolute;
+  inset: 4% 8% 0 8%;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  gap: 3px 4px;
+}
+
+.tunnel-intro__window {
+  background: var(--tunnel-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.tunnel-intro__window span {
+  font-size: clamp(0.35rem, 1.1vmin, 0.55rem);
+  font-weight: 900;
+  color: var(--tunnel-text);
+  letter-spacing: -0.05em;
+  transform: scale(0.85);
+}
+
+.tunnel-intro__building-shadow {
+  position: absolute;
+  bottom: -8%;
+  left: -15%;
+  right: -15%;
+  height: 12%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.45) 0%,
+    transparent 70%
+  );
+  transform: rotateX(90deg) translateZ(-20px);
+}
+
+.tunnel-intro__ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18vh;
+  background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+  z-index: 1;
+  opacity: 0;
+}
+
+.tunnel-intro__brand {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  opacity: 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+.tunnel-intro__brand h1 {
+  font-family: var(--font-cormorant, Georgia, serif);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Mega logo — dominates viewport (5×+ previous size) */
+.tunnel-intro__mega-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.tunnel-intro__mega-mask {
+  overflow: hidden;
+}
+
+.tunnel-intro__mega {
+  font-family: "Arial Black", "Impact", sans-serif;
+  font-size: clamp(8rem, 42vw, 28rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  color: #111111;
+  text-transform: uppercase;
+  will-change: transform, opacity;
+}
+
+.tunnel-intro__brand p {
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .tunnel-intro {
+    --tunnel-perspective: 600px;
+  }
+
+  .tunnel-intro__texture {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tunnel-intro__mover,
+  .tunnel-intro__tunnel,
+  .tunnel-intro__building {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,26 +1,290 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cinema-black: #050505;
+  --cinema-deep: #0a0a0a;
+  --cinema-charcoal: #141414;
+  --cinema-red: #d61f26;
+  --cinema-red-glow: #ff3b3b;
+  --pure-white: #ffffff;
+  --warm-white: #ffffff;
+  --warm-muted: #a3a3a3;
+  --silver: #c4c4c4;
+  --silver-dim: #5a5a5a;
+  --red-glow-soft: rgba(214, 31, 38, 0.35);
+  --red-glow-strong: rgba(255, 59, 59, 0.2);
+  --grain-opacity: 0.05;
+  --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-slow: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cinema-black: var(--cinema-black);
+  --color-cinema-deep: var(--cinema-deep);
+  --color-cinema-charcoal: var(--cinema-charcoal);
+  --color-cinema-red: var(--cinema-red);
+  --color-cinema-red-glow: var(--cinema-red-glow);
+  --color-pure-white: var(--pure-white);
+  --color-warm-white: var(--warm-white);
+  --color-warm-muted: var(--warm-muted);
+  --color-silver: var(--silver);
+  --color-silver-dim: var(--silver-dim);
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cinema-black);
+  color: var(--pure-white);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(214, 31, 38, 0.4);
+  color: var(--pure-white);
+}
+
+/* Film grain */
+.film-grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+  animation: grain-shift 8s steps(10) infinite;
+}
+
+@keyframes grain-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2%, -1%);
+  }
+}
+
+.cinema-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(
+    ellipse 75% 65% at 50% 50%,
+    transparent 35%,
+    rgba(5, 5, 5, 0.65) 100%
+  );
+}
+
+.red-glow {
+  box-shadow: 0 0 60px var(--red-glow-soft), 0 0 120px var(--red-glow-strong);
+}
+
+.red-glow-text {
+  text-shadow: 0 0 40px var(--red-glow-soft);
+}
+
+.text-display {
+  font-family: var(--font-inter), sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.text-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--silver-dim);
+  font-weight: 500;
+}
+
+.text-label-red {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cinema-red);
+  font-weight: 500;
+}
+
+.section-pad {
+  padding-left: clamp(1.25rem, 5vw, 4rem);
+  padding-right: clamp(1.25rem, 5vw, 4rem);
+}
+
+/* Light sweep on hover */
+.light-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.light-sweep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.9s var(--ease-cinema);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.group:hover .light-sweep::after,
+.light-sweep:hover::after {
+  transform: translateX(120%);
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Shutter iris */
+.shutter-blade {
+  transform-origin: center bottom;
+}
+
+/* Film strip frames */
+.film-frame {
+  background: linear-gradient(
+    180deg,
+    #1a1a1a 0%,
+    #0d0d0d 50%,
+    #1a1a1a 100%
+  );
+  border-left: 3px solid var(--cinema-black);
+  border-right: 3px solid var(--cinema-black);
+  box-shadow: inset 0 0 30px rgba(214, 31, 38, 0.15);
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cinema-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cinema-red);
+}
+
+video {
+  object-fit: cover;
+}
+
+:focus-visible {
+  outline: 1px solid var(--cinema-red);
+  outline-offset: 4px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Red motion streak */
+.red-streak-line {
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 59, 59, 0.4) 45%,
+    rgba(214, 31, 38, 0.8) 50%,
+    rgba(255, 59, 59, 0.4) 55%,
+    transparent 100%
+  );
+  animation: red-streak 4s linear infinite;
+}
+
+@keyframes red-streak {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.section-red {
+  background: linear-gradient(
+    180deg,
+    var(--cinema-red) 0%,
+    var(--cinema-black) 100%
+  );
+}
+
+.section-black-red {
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    rgba(214, 31, 38, 0.35) 0%,
+    var(--cinema-black) 55%
+  );
 }
