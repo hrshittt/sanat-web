@@ -61,7 +61,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <h1 className="text-display text-[clamp(3rem,8vw,8rem)] text-pure-white leading-[0.9] mb-8 uppercase tracking-tight">
             {project.title}
           </h1>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 pt-12 border-t border-cinema-charcoal">
             <div className="md:col-span-8">
               {/* Strict reliance on provided overview, no paraphrasing */}
@@ -84,17 +84,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </header>
 
-        {/* Hero Media Placeholder */}
+        {/* Hero Media */}
         <section className="mb-24">
-          <p className="text-label text-silver-dim mb-6">Hero Media</p>
-          <div className="w-full aspect-[21/9] md:aspect-[2.35/1] bg-cinema-charcoal relative overflow-hidden shadow-2xl border border-cinema-charcoal/50">
+          <div className="w-full max-w-4xl mx-auto aspect-[16/9] md:aspect-[2.35/1] bg-cinema-black relative overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] ring-1 ring-pure-white/10">
             {project.poster ? (
-              <Image 
-                src={project.poster} 
-                alt={`${project.title} Hero`} 
-                fill 
-                className="object-cover" 
-                sizes="100vw"
+              <Image
+                src={project.poster}
+                alt={`${project.title} Hero`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 1024px"
                 priority
               />
             ) : (
@@ -102,78 +101,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <span className="text-label text-silver-dim">Hero Media Placeholder</span>
               </div>
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-cinema-black/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-cinema-black/60 via-transparent to-transparent pointer-events-none" />
           </div>
         </section>
 
-        {/* Video Placeholder */}
+        {/* Main Feature */}
         <section className="mb-24">
-          <p className="text-label text-silver-dim mb-6">Main Feature</p>
-          <div className="w-full aspect-video max-w-5xl mx-auto bg-cinema-charcoal relative overflow-hidden shadow-2xl group cursor-pointer border border-cinema-charcoal/50">
+          <div className="w-full max-w-[400px] md:max-w-[450px] mx-auto aspect-[9/16] bg-cinema-black relative rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.9)] ring-1 ring-cinema-red/20 flex items-center justify-center group">
             <video
-              className="absolute inset-0 h-full w-full object-cover opacity-80"
-              muted
-              loop
+              className="w-full h-full object-cover bg-black"
+              controls
               playsInline
+              preload="metadata"
               poster={project.poster}
             >
               <source src={project.heroVideo} type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-cinema-black/20 group-hover:bg-cinema-black/10 transition-colors duration-500" />
             
-            {/* Play Button Indicator */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border border-pure-white/20 flex items-center justify-center backdrop-blur-md group-hover:scale-110 transition-transform duration-500 bg-cinema-black/40">
-                <div className="w-0 h-0 border-t-[10px] border-t-transparent border-l-[18px] border-l-pure-white border-b-[10px] border-b-transparent ml-2" />
-              </div>
-            </div>
+            {/* Cinematic Red Glow Behind Video */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(214,31,38,0.1),transparent_70%)] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           </div>
         </section>
 
-        {/* Gallery Placeholder */}
-        <section className="mb-24">
-          <p className="text-label text-silver-dim mb-6">Visual Gallery</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {project.gallery && project.gallery.length > 0 ? (
-              project.gallery.map((src, i) => (
-                <div key={i} className="relative bg-cinema-charcoal w-full aspect-[4/3] overflow-hidden border border-cinema-charcoal/50">
-                  <Image src={src} alt={`${project.title} Gallery ${i + 1}`} fill className="object-cover" />
-                </div>
-              ))
-            ) : (
-              <>
-                <div className="relative bg-cinema-charcoal w-full aspect-[4/3] border border-cinema-charcoal/50 flex items-center justify-center">
-                  <span className="text-label text-silver-dim">Gallery Image 1 Placeholder</span>
-                </div>
-                <div className="relative bg-cinema-charcoal w-full aspect-[4/3] border border-cinema-charcoal/50 flex items-center justify-center">
-                  <span className="text-label text-silver-dim">Gallery Image 2 Placeholder</span>
-                </div>
-              </>
-            )}
-          </div>
-        </section>
 
-        {/* Behind The Scenes Placeholder */}
-        <section>
-          <p className="text-label text-silver-dim mb-6">Behind The Scenes</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {project.bts && project.bts.length > 0 ? (
-              project.bts.map((src, i) => (
-                <div key={i} className="relative bg-cinema-charcoal aspect-[4/5] overflow-hidden border border-cinema-charcoal/50 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-                  <Image src={src} alt={`BTS ${i + 1}`} fill className="object-cover" />
-                </div>
-              ))
-            ) : (
-              <>
-                {[1, 2, 3].map((_, i) => (
-                  <div key={i} className="relative bg-cinema-deep aspect-[4/5] border border-cinema-charcoal/30 flex items-center justify-center">
-                    <span className="text-label text-silver-dim">BTS Placeholder {i + 1}</span>
-                  </div>
-                ))}
-              </>
-            )}
-          </div>
-        </section>
 
       </div>
     </article>

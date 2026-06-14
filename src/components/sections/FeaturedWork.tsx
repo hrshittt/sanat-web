@@ -24,7 +24,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
   });
 
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  
+
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   return (
@@ -42,12 +42,12 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
       }}
     >
       {/* Custom Cursor */}
-      <motion.div 
+      <motion.div
         className="absolute z-50 pointer-events-none flex items-center justify-center bg-cinema-red text-pure-white rounded-full text-[10px] font-bold tracking-widest uppercase text-center shadow-[0_0_30px_rgba(214,31,38,0.5)]"
-        animate={{ 
+        animate={{
           x: mousePos.x - 60,
           y: mousePos.y - 60,
-          opacity: isHovered ? 1 : 0, 
+          opacity: isHovered ? 1 : 0,
           scale: isHovered ? 1 : 0,
         }}
         transition={{
@@ -58,12 +58,58 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
         }}
         style={{ width: "120px", height: "120px" }}
       >
-        EXPLORE<br/>ARCHIVE
+        EXPLORE<br />ARCHIVE
       </motion.div>
 
-      <motion.div 
-        className="absolute inset-0 w-full h-full"
-        style={{ y: parallaxY, scale: 1.15 }}
+      {/* Cinematic Red Light Leaks */}
+      <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden mix-blend-screen">
+        <motion.div 
+          className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(214,31,38,0.25)_0%,transparent_70%)] blur-3xl"
+          animate={{
+            x: ["0%", "40%", "-20%", "0%"],
+            y: ["0%", "30%", "50%", "0%"],
+            scale: [1, 1.5, 0.8, 1],
+            opacity: [0.4, 0.7, 0.3, 0.4]
+          }}
+          transition={{
+            duration: 22,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "mirror"
+          }}
+        />
+        <motion.div 
+          className="absolute top-[40%] right-[10%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(255,50,50,0.15)_0%,transparent_70%)] blur-3xl"
+          animate={{
+            x: ["0%", "-40%", "20%", "0%"],
+            y: ["0%", "-50%", "20%", "0%"],
+            scale: [1, 0.8, 1.4, 1],
+            opacity: [0.3, 0.6, 0.2, 0.3]
+          }}
+          transition={{
+            duration: 28,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "mirror",
+            delay: 3
+          }}
+        />
+      </div>
+
+      <motion.div
+        className="absolute inset-0 w-full h-full origin-center"
+        style={{ y: parallaxY }}
+        animate={{ 
+          scale: [1.15, 1.25, 1.15],
+          x: ["0%", "-2%", "1%", "0%"],
+          y: ["0%", "1%", "-2%", "0%"]
+        }}
+        transition={{ 
+          duration: 35, 
+          ease: "linear", 
+          repeat: Infinity,
+          repeatType: "mirror"
+        }}
       >
         {bgVideo ? (
           <video
@@ -101,7 +147,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
           </div>
         </motion.div>
       </div>
-      
+
       {/* Click target over entire section */}
       <Link href="/work" className="absolute inset-0 z-10">
         <span className="sr-only">Explore Archive</span>
