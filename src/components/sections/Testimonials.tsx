@@ -56,15 +56,6 @@ export function Testimonials() {
         className="absolute inset-0 w-full h-full"
         style={{ y: parallaxY, scale: 1.15 }}
       >
-        <video
-          className="absolute inset-0 h-full w-full object-cover opacity-30 group-hover:opacity-50 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] grayscale group-hover:grayscale-0"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/testimonials-bg.MP4" type="video/mp4" />
-        </video>
         <div className="absolute inset-0 bg-cinema-black/70 group-hover:bg-cinema-black/40 transition-colors duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(214,31,38,0.2),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-out pointer-events-none" />
       </motion.div>

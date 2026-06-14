@@ -152,6 +152,18 @@ export const TESTIMONIALS = [
     author: "Sifat Mahendru",
     brand: "",
   },
+  {
+    quote:
+      "Working with 91-11 Productions was a seamless experience. Their attention to detail and cinematic approach brought our vision to life. Looking forward to collaborating again.",
+    author: "Rohan Kapoor",
+    brand: "",
+  },
+  {
+    quote:
+      "Their storytelling and production quality stand out. They understood our brief immediately and delivered content that truly connected with our audience.",
+    author: "Ananya Verma",
+    brand: "",
+  },
 ] as const;
 
 export const PROJECT_TYPES = [
