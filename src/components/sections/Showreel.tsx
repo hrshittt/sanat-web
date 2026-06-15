@@ -3,8 +3,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-const REEL_VIDEO =
-  "https://res.cloudinary.com/demo/video/upload/f_auto,q_auto:good/v1694456750/samples/sea-turtle.mp4";
+const REEL_VIDEO = "/about-cover.mp4";
 
 export function Showreel() {
   const videoRef = useRef<HTMLVideoElement>(null);

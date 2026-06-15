@@ -14,10 +14,6 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Use the first featured project's video as the background teaser
-  const bgVideo = projects.find(p => p.featured)?.heroVideo || projects[0]?.heroVideo;
-  const bgPoster = projects.find(p => p.featured)?.poster || projects[0]?.poster;
-
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
@@ -111,22 +107,12 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
           repeatType: "mirror"
         }}
       >
-        {bgVideo ? (
-          <video
-            className="absolute inset-0 h-full w-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={bgPoster}
-          >
-            <source src={bgVideo} type="video/mp4" />
-          </video>
-        ) : (
-          <div className="absolute inset-0 bg-cinema-charcoal" />
-        )}
+        <img
+          src="/selected-work-bg.jpeg"
+          alt="Selected Work Background"
+          className="absolute inset-0 h-full w-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        />
         <div className="absolute inset-0 bg-cinema-black/60 group-hover:bg-cinema-black/30 transition-colors duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(214,31,38,0.2),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 ease-out pointer-events-none" />
       </motion.div>
 
       <div className="relative z-10 text-center px-4 pointer-events-none">

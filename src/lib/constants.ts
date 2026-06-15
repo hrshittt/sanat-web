@@ -188,5 +188,4 @@ export const BUDGET_RANGES = [
   "To be discussed",
 ] as const;
 
-export const HERO_VIDEO =
-  "https://res.cloudinary.com/demo/video/upload/f_auto,q_auto:good/v1694456750/samples/sea-turtle.mp4";
+export const HERO_VIDEO = "/about-cover.mp4";
