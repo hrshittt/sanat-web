@@ -32,7 +32,7 @@ export const FOUNDER = {
   timeline: [
     { year: "Early Years", title: "Passion for Storytelling", desc: "Drawn to cameras, composition, and the language of cinema from childhood." },
     { year: "Exploration", title: "Visual Discovery", desc: "Years of shooting, experimenting, and refining a cinematic eye." },
-    { year: "2023", title: "91-11 Founded", desc: "A production house built to craft immersive, intentional visual stories." },
+    { year: "2025", title: "91-11 Founded", desc: "A production house built to craft immersive, intentional visual stories." },
     { year: "Today", title: "The Vision", desc: "Creating work that makes brands unforgettable — frame by frame." },
   ],
 } as const;

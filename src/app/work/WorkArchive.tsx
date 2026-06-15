@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import type { Project } from "@/types/project";
+import { CinematicButton } from "@/components/ui/CinematicButton";
 
 interface WorkArchiveProps {
   projects: Project[];
@@ -119,6 +120,12 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
           <p className="text-warm-muted text-lg md:text-xl font-light leading-relaxed mb-10 whitespace-pre-wrap line-clamp-4">
             {project.overview}
           </p>
+          
+          <div className="flex">
+            <CinematicButton href={`/work/${project.slug}`} variant="outline">
+              Explore Project
+            </CinematicButton>
+          </div>
         </motion.div>
       </motion.div>
     </div>
