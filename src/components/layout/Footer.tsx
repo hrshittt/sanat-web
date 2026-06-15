@@ -9,7 +9,7 @@ export function Footer() {
         <div>
           <Link href="/" className="inline-block mb-6">
             <Image
-              src="/logo.png"
+              src="/logo2.ico"
               alt="91-11 Productions Logo"
               width={120}
               height={120}
@@ -55,10 +55,11 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mt-16 pt-8 border-t border-cinema-red/30 flex flex-col sm:flex-row justify-between gap-4 text-xs text-silver-dim">
+      <div className="mt-16 pt-8 border-t border-cinema-red/30 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-silver-dim text-center sm:text-left">
         <p>
           © {new Date().getFullYear()} {SITE.name}. All rights reserved.
         </p>
+        <p>Made by <span className="text-cinema-red">MDH</span></p>
         <p>
           Founded by{" "}
           <Link

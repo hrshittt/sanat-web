@@ -47,11 +47,10 @@ export function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${scrolled
             ? "bg-cinema-red/95 backdrop-blur-md py-4 border-b border-pure-white/10"
             : "bg-cinema-black/40 backdrop-blur-sm py-6 md:py-8"
-        }`}
+          }`}
       >
         <nav className="section-pad flex items-center justify-between">
           <Link
@@ -59,7 +58,7 @@ export function Navigation() {
             className="hover:opacity-80 transition-opacity duration-500 flex items-center"
           >
             <Image
-              src="/logo.png"
+              src={scrolled ? "/logo1.ico" : "/logo2.ico"}
               alt="91-11 Productions Logo"
               width={100}
               height={100}
@@ -94,19 +93,16 @@ export function Navigation() {
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <span
-              className={`block h-px bg-pure-white transition-all duration-500 ${
-                menuOpen ? "rotate-45 translate-y-[7px]" : ""
-              }`}
+              className={`block h-px bg-pure-white transition-all duration-500 ${menuOpen ? "rotate-45 translate-y-[7px]" : ""
+                }`}
             />
             <span
-              className={`block h-px bg-pure-white transition-all duration-500 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
+              className={`block h-px bg-pure-white transition-all duration-500 ${menuOpen ? "opacity-0" : ""
+                }`}
             />
             <span
-              className={`block h-px bg-pure-white transition-all duration-500 ${
-                menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-              }`}
+              className={`block h-px bg-pure-white transition-all duration-500 ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
+                }`}
             />
           </button>
         </nav>
