@@ -76,6 +76,7 @@ export function Showreel() {
           onClick={togglePlay}
           className="mt-12 text-label border border-warm-white/30 px-8 py-4 hover:bg-warm-white/10 transition-colors duration-500"
           aria-label={isPlaying ? "Pause showreel" : "Play showreel"}
+          data-cursor="magnetic"
         >
           {isPlaying ? "Pause" : "Play"}
         </button>

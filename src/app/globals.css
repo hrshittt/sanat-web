@@ -288,3 +288,10 @@ video {
     var(--cinema-black) 55%
   );
 }
+
+/* Hide default cursor on fine pointer devices */
+@media (pointer: fine) {
+  body, a, button, input, textarea, select, [role="button"] {
+    cursor: none !important;
+  }
+}

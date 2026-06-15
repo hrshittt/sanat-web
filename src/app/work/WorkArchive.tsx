@@ -47,7 +47,6 @@ export function WorkArchive({ projects }: WorkArchiveProps) {
 function ProjectItem({ project, index }: { project: Project; index: number }) {
   const isEven = index % 2 === 0;
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -57,8 +56,6 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
   const imgParallax = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
 
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
   return (
     <div 
       ref={containerRef}
@@ -67,38 +64,11 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
       {/* Media Side */}
       <Link 
         href={`/work/${project.slug}`}
-        className="w-full md:w-[60%] relative group cursor-none block"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        onMouseMove={(e) => {
-          const rect = containerRef.current?.getBoundingClientRect();
-          if (rect) {
-            setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-          }
-        }}
+        className="w-full md:w-[60%] relative group block"
+        data-cursor="project"
       >
         {/* Set to aspect-[4/5] everywhere to enforce portrait orientation */}
         <div className="relative aspect-[4/5] overflow-hidden bg-cinema-charcoal shadow-2xl">
-          {/* Custom Cursor */}
-          <motion.div 
-            className="absolute z-50 pointer-events-none flex items-center justify-center bg-cinema-red text-pure-white rounded-full text-[10px] font-bold tracking-widest uppercase text-center mix-blend-screen shadow-[0_0_30px_rgba(214,31,38,0.5)]"
-            animate={{ 
-              x: mousePos.x - 50,
-              y: mousePos.y - 50,
-              opacity: isHovered ? 1 : 0, 
-              scale: isHovered ? 1 : 0,
-            }}
-            transition={{
-              x: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
-              y: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
-              opacity: { duration: 0.2 },
-              scale: { duration: 0.2 }
-            }}
-            style={{ width: "100px", height: "100px" }}
-          >
-            VIEW
-          </motion.div>
-
           <motion.div 
             className="absolute inset-0 w-full h-full origin-center"
             style={{ y: imgParallax, scale: 1.15 }}

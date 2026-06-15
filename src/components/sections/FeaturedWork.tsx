@@ -12,7 +12,6 @@ interface FeaturedWorkProps {
 
 export function FeaturedWork({ projects }: FeaturedWorkProps) {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -21,42 +20,13 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
 
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
   return (
     <section
       id={SECTIONS.selectedFrames.id}
       ref={sectionRef}
-      className="relative bg-cinema-black h-screen min-h-[600px] overflow-hidden z-20 flex items-center justify-center cursor-none group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={(e) => {
-        const rect = sectionRef.current?.getBoundingClientRect();
-        if (rect) {
-          setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-        }
-      }}
+      data-cursor-section="work"
+      className="relative bg-cinema-black h-screen min-h-[600px] overflow-hidden z-20 flex items-center justify-center group"
     >
-      {/* Custom Cursor */}
-      <motion.div
-        className="absolute z-50 pointer-events-none flex items-center justify-center bg-cinema-red text-pure-white rounded-full text-[10px] font-bold tracking-widest uppercase text-center shadow-[0_0_30px_rgba(214,31,38,0.5)]"
-        animate={{
-          x: mousePos.x - 60,
-          y: mousePos.y - 60,
-          opacity: isHovered ? 1 : 0,
-          scale: isHovered ? 1 : 0,
-        }}
-        transition={{
-          x: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
-          y: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
-          opacity: { duration: 0.2 },
-          scale: { duration: 0.3, ease: "backOut" }
-        }}
-        style={{ width: "120px", height: "120px" }}
-      >
-        EXPLORE<br />ARCHIVE
-      </motion.div>
-
       {/* Cinematic Red Light Leaks */}
       <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden mix-blend-screen">
         <motion.div 
@@ -135,7 +105,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
       </div>
 
       {/* Click target over entire section */}
-      <Link href="/work" className="absolute inset-0 z-10">
+      <Link href="/work" className="absolute inset-0 z-10" data-cursor="project">
         <span className="sr-only">Explore Archive</span>
       </Link>
     </section>

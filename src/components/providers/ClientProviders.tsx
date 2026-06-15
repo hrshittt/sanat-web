@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { SmoothScroll } from "./SmoothScroll";
 import { CinematicPreloader } from "@/components/intro/CinematicPreloader";
+import { CinematicCursor } from "@/components/ui/CinematicCursor";
 
 export function ClientProviders({ children }: { children: React.ReactNode }) {
   const [introDone, setIntroDone] = useState(false);
@@ -13,6 +14,7 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <CinematicCursor />
       {!introDone && <CinematicPreloader onComplete={handleIntroComplete} />}
       <SmoothScroll introDone={introDone}>{children}</SmoothScroll>
     </>

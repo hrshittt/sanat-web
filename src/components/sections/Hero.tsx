@@ -62,6 +62,7 @@ export function Hero() {
     <section
       id={SECTIONS.about.id}
       ref={sectionRef}
+      data-cursor-section="about"
       className="relative h-[100svh] min-h-[600px] w-full overflow-hidden z-10 bg-cinema-red"
     >
       <div ref={videoWrapRef} className="absolute inset-0 gpu will-change-transform">

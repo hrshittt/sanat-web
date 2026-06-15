@@ -101,6 +101,7 @@ export function Contact() {
     <section
       id={SECTIONS.contact.id}
       ref={sectionRef}
+      data-cursor-section="contact"
       className="relative bg-gradient-to-b from-cinema-black via-cinema-red/90 to-cinema-red py-32 md:py-48 overflow-hidden"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,59,59,0.2),transparent_45%)] pointer-events-none" />
@@ -245,6 +246,7 @@ export function Contact() {
             <button
               type="submit"
               disabled={status === "loading"}
+              data-cursor="magnetic"
               className="w-full text-label bg-cinema-black border border-pure-white/20 text-pure-white px-10 py-5 mt-4 hover:bg-pure-white hover:text-cinema-black transition-all duration-500 disabled:opacity-50 shadow-2xl relative z-50"
             >
               {status === "loading" ? "Sending..." : "Submit Inquiry"}

@@ -7,7 +7,6 @@ import { SECTIONS } from "@/lib/sections";
 
 export function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -15,43 +14,13 @@ export function Testimonials() {
   });
 
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-  
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   return (
     <section
       id={SECTIONS.testimonials.id}
       ref={sectionRef}
-      className="relative bg-cinema-black h-[70vh] min-h-[500px] overflow-hidden z-20 flex items-center justify-center cursor-none group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={(e) => {
-        const rect = sectionRef.current?.getBoundingClientRect();
-        if (rect) {
-          setMousePos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-        }
-      }}
+      className="relative bg-cinema-black h-[70vh] min-h-[500px] overflow-hidden z-20 flex items-center justify-center group"
     >
-      {/* Custom Cursor */}
-      <motion.div 
-        className="absolute z-50 pointer-events-none flex items-center justify-center bg-cinema-red text-pure-white rounded-full text-[10px] font-bold tracking-widest uppercase text-center shadow-[0_0_30px_rgba(214,31,38,0.5)]"
-        animate={{ 
-          x: mousePos.x - 60,
-          y: mousePos.y - 60,
-          opacity: isHovered ? 1 : 0, 
-          scale: isHovered ? 1 : 0,
-        }}
-        transition={{
-          x: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
-          y: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
-          opacity: { duration: 0.2 },
-          scale: { duration: 0.3, ease: "backOut" }
-        }}
-        style={{ width: "120px", height: "120px" }}
-      >
-        READ<br/>STORIES
-      </motion.div>
-
       <motion.div 
         className="absolute inset-0 w-full h-full"
         style={{ y: parallaxY, scale: 1.15 }}
