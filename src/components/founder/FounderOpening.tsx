@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TextReveal } from "@/components/ui/TextReveal";
@@ -74,12 +75,20 @@ export function FounderOpening() {
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-r from-cinema-black/90 via-cinema-black/50 to-cinema-red/20 z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-cinema-black via-transparent to-cinema-black/40 z-[1]" />
-
       <div
         ref={contentRef}
-        className="relative z-10 h-full flex flex-col justify-end section-pad pb-16 md:pb-24 max-w-4xl"
+        className="relative z-10 h-full flex flex-col justify-end section-pad pt-32 pb-16 md:pb-24 max-w-4xl"
       >
+        <div className="mb-auto mt-8">
+          <Link
+            href="/"
+            className="text-label text-silver-dim hover:text-pure-white transition-colors flex items-center gap-4 group w-fit"
+          >
+            <span className="w-8 h-[1px] bg-cinema-red group-hover:w-12 transition-all duration-300" />
+            RETURN TO HOME
+          </Link>
+        </div>
+
         <p className="text-label-red mb-6">Founder</p>
         <TextReveal
           as="h1"

@@ -5,13 +5,41 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { NAV_LINKS } from "@/lib/constants";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollToPlugin);
+}
 
 export function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [visible, setVisible] = useState(false);
+
+  const handleCinematicScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    // Always close the mobile menu on any navigation click
+    setMenuOpen(false);
+    
+    const isHashLink = href.includes('#');
+    if (!isHashLink) return;
+
+    const hashIndex = href.indexOf('#');
+    const pathPart = href.substring(0, hashIndex);
+    const hashPart = href.substring(hashIndex);
+
+    if (pathPart === "" || pathPart === pathname || (pathPart === "/" && pathname === "/")) {
+      e.preventDefault();
+      
+      gsap.to(window, {
+        duration: 2.5,
+        scrollTo: { y: hashPart, autoKill: false },
+        ease: "expo.inOut",
+      });
+    }
+  };
 
   useEffect(() => {
     const show = () => setVisible(true);
@@ -71,6 +99,7 @@ export function Navigation() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  onClick={(e) => handleCinematicScroll(e, link.href)}
                   className="text-sm font-bold tracking-[0.2em] uppercase text-pure-white/70 hover:text-pure-white transition-colors duration-500"
                 >
                   {link.label}
@@ -81,6 +110,7 @@ export function Navigation() {
 
           <Link
             href={isHome ? "#contact" : "/#contact"}
+            onClick={(e) => handleCinematicScroll(e, isHome ? "#contact" : "/#contact")}
             className="hidden md:inline-flex text-sm font-bold tracking-[0.2em] uppercase text-pure-white bg-cinema-red px-6 py-3 hover:bg-cinema-red-glow transition-all duration-500 red-glow"
           >
             Start a Project
@@ -126,7 +156,7 @@ export function Navigation() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setMenuOpen(false)}
+                    onClick={(e) => handleCinematicScroll(e, link.href)}
                     className="text-display text-5xl font-bold text-pure-white"
                   >
                     {link.label}

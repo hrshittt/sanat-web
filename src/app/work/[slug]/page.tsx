@@ -40,19 +40,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <div className="fixed inset-0 film-grain pointer-events-none z-50" />
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(214,31,38,0.05),transparent_60%)] pointer-events-none" />
 
-      {/* Navigation */}
-      <div className="absolute top-0 left-0 right-0 z-40 section-pad pt-12 pb-8">
-        <Link
-          href="/#work"
-          className="text-label text-silver-dim hover:text-pure-white transition-colors flex items-center gap-4 group w-fit"
-        >
-          <span className="w-8 h-[1px] bg-cinema-red group-hover:w-12 transition-all duration-300" />
-          RETURN TO ARCHIVE
-        </Link>
-      </div>
-
       {/* Main Container */}
       <div className="section-pad pt-32 pb-24 md:pt-48 md:pb-32 max-w-[1600px] mx-auto">
+        <div className="mb-12 md:mb-16">
+          <Link
+            href="/work"
+            className="text-label text-silver-dim hover:text-pure-white transition-colors flex items-center gap-4 group w-fit"
+          >
+            <span className="w-8 h-[1px] bg-cinema-red group-hover:w-12 transition-all duration-300" />
+            RETURN TO ARCHIVE
+          </Link>
+        </div>
+
         {/* Header / Title Area */}
         <header className="mb-16 md:mb-24">
           <p className="text-cinema-red text-sm font-medium tracking-[0.3em] uppercase mb-6">

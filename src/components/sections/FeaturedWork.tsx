@@ -64,18 +64,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
 
       <motion.div
         className="absolute inset-0 w-full h-full origin-center"
-        style={{ y: parallaxY }}
-        animate={{ 
-          scale: [1.15, 1.25, 1.15],
-          x: ["0%", "-2%", "1%", "0%"],
-          y: ["0%", "1%", "-2%", "0%"]
-        }}
-        transition={{ 
-          duration: 35, 
-          ease: "linear", 
-          repeat: Infinity,
-          repeatType: "mirror"
-        }}
+        style={{ y: parallaxY, scale: 1.15 }}
       >
         <img
           src="/selected-work-bg.jpeg"

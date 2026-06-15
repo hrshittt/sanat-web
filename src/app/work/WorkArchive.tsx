@@ -19,7 +19,16 @@ export function WorkArchive({ projects }: WorkArchiveProps) {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(214,31,38,0.1),transparent_70%)] pointer-events-none" />
 
       {/* Hero Header */}
-      <header className="relative pt-40 pb-20 md:pt-56 md:pb-32 px-6 md:px-12 max-w-[1600px] mx-auto z-10">
+      <header className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 md:px-12 max-w-[1600px] mx-auto z-10">
+        <div className="mb-12 md:mb-16">
+          <Link
+            href="/"
+            className="text-label text-silver-dim hover:text-pure-white transition-colors flex items-center gap-4 group w-fit"
+          >
+            <span className="w-8 h-[1px] bg-cinema-red group-hover:w-12 transition-all duration-300" />
+            RETURN TO HOME
+          </Link>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}

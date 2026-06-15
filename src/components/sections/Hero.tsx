@@ -30,17 +30,7 @@ export function Hero() {
         { opacity: 0.5, duration: 2, delay: 0.3, ease: "power2.out" }
       );
 
-      gsap.to(videoWrapRef.current, {
-        scale: 1.15,
-        yPercent: 15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1.2,
-        },
-      });
+      // Removed the intensive scrub animation on the background video to improve performance
 
       gsap.to(contentRef.current, {
         opacity: 0,
@@ -63,7 +53,7 @@ export function Hero() {
       id={SECTIONS.about.id}
       ref={sectionRef}
       data-cursor-section="about"
-      className="relative h-[100svh] min-h-[600px] w-full overflow-hidden z-10 bg-cinema-red"
+      className="relative h-[100svh] min-h-[600px] w-full overflow-hidden z-10 bg-cinema-black"
     >
       <div ref={videoWrapRef} className="absolute inset-0 gpu will-change-transform">
         <video
@@ -81,10 +71,10 @@ export function Hero() {
 
       <div
         ref={overlayRef}
-        className="absolute inset-0 bg-cinema-red/70 z-[1]"
+        className="absolute inset-0 bg-cinema-black/60 z-[1]"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-cinema-black/60 via-cinema-red/20 to-cinema-black z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-cinema-black/80 via-transparent to-cinema-red/30 z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cinema-black/60 via-transparent to-cinema-black z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-cinema-black/80 via-transparent to-transparent z-[1]" />
 
       <HeroAmbient />
 

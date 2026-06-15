@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { TESTIMONIALS } from "@/lib/constants";
 
 export function TestimonialsArchive() {
@@ -14,7 +15,16 @@ export function TestimonialsArchive() {
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top,rgba(214,31,38,0.08),transparent_70%)] pointer-events-none" />
 
       {/* Hero Header */}
-      <header className="relative pt-40 pb-16 md:pt-56 md:pb-24 px-6 md:px-12 max-w-[1200px] mx-auto z-10 text-center">
+      <header className="relative pt-32 pb-16 md:pt-48 md:pb-24 px-6 md:px-12 max-w-[1200px] mx-auto z-10 text-center">
+        <div className="mb-12 md:mb-16 flex justify-start w-full text-left">
+          <Link
+            href="/"
+            className="text-label text-silver-dim hover:text-pure-white transition-colors flex items-center gap-4 group w-fit"
+          >
+            <span className="w-8 h-[1px] bg-cinema-red group-hover:w-12 transition-all duration-300" />
+            RETURN TO HOME
+          </Link>
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
