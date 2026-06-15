@@ -23,7 +23,7 @@ export function CinematicButton({
 
   return (
     <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-      <Link href={href} className={`${base} ${styles}`}>
+      <Link href={href} className={`${base} ${styles}`} data-cursor="magnetic">
         <span className="relative z-10">{children}</span>
         {variant === "primary" && (
           <span className="absolute inset-0 bg-cinema-red-glow translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" />

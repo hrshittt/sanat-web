@@ -83,6 +83,7 @@ export function CinematicVideoPlayer({
   return (
     <div
       ref={containerRef}
+      data-cursor="video"
       className={`relative w-full mx-auto overflow-hidden bg-cinema-black group ${
         isFullscreen ? "max-w-none aspect-auto rounded-none" : "max-w-sm aspect-[9/16] rounded-2xl"
       } ${hovered ? "red-glow" : ""}`}
@@ -113,6 +114,7 @@ export function CinematicVideoPlayer({
         <button
           type="button"
           onClick={togglePlay}
+          data-cursor="magnetic"
           className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-cinema-black/40 backdrop-blur-[2px] transition-opacity z-10"
           aria-label={`Play ${title}`}
         >
@@ -132,6 +134,7 @@ export function CinematicVideoPlayer({
           <button
             type="button"
             onClick={togglePlay}
+            data-cursor="magnetic"
             className="text-label text-pure-white hover:text-cinema-red transition-colors"
           >
             {playing ? "Pause" : "Play"}
@@ -139,6 +142,7 @@ export function CinematicVideoPlayer({
           <button
             type="button"
             onClick={toggleMute}
+            data-cursor="magnetic"
             className="text-label text-pure-white hover:text-cinema-red transition-colors"
           >
             {isMuted ? "Unmute" : "Mute"}
@@ -146,6 +150,7 @@ export function CinematicVideoPlayer({
           <button
             type="button"
             onClick={toggleFullscreen}
+            data-cursor="magnetic"
             className="text-label text-warm-muted hover:text-pure-white transition-colors ml-auto"
           >
             Fullscreen

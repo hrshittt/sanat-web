@@ -86,7 +86,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Hero Media */}
         <section className="mb-24">
-          <div className="w-full max-w-4xl mx-auto aspect-[16/9] md:aspect-[2.35/1] bg-cinema-black relative overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] ring-1 ring-pure-white/10">
+          <div className="w-full aspect-[16/9] md:aspect-[2.35/1] bg-cinema-black relative overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] ring-1 ring-pure-white/10">
             {project.poster ? (
               <Image
                 src={project.poster}

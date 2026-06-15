@@ -54,6 +54,7 @@ export function FounderOpening() {
   return (
     <section
       ref={sectionRef}
+      data-cursor-section="founder"
       className="relative h-[100svh] min-h-[640px] w-full overflow-hidden"
     >
       <div ref={imageRef} className="absolute inset-0 gpu">
