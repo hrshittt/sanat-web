@@ -86,7 +86,7 @@ export function Navigation() {
             className="hover:opacity-80 transition-opacity duration-500 flex items-center"
           >
             <Image
-              src={scrolled ? "/logo1.ico" : "/logo2.ico"}
+              src={scrolled ? "/logos/on orange bg.png" : "/logos/on black bg.png"}
               alt="91-11 Productions Logo"
               width={100}
               height={100}
