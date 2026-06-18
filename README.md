@@ -8,7 +8,7 @@ This project blends immersive storytelling, cinematic motion design, premium vis
 
 ---
 
-## ✨ Experience
+## Experience
 
 The website is built around a simple philosophy:
 
@@ -31,7 +31,7 @@ Every interaction, transition, animation, and visual element is designed to refl
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---------|---------|
@@ -62,7 +62,7 @@ server/                 # Express Inquiry Server
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Clone Repository
 
@@ -91,7 +91,7 @@ http://localhost:3000
 
 ---
 
-## 📧 Contact Form Setup
+##  Contact Form Setup
 
 ### Using Next.js API Route
 
@@ -126,7 +126,7 @@ inside:
 
 ---
 
-## 🎞️ Sanity CMS Setup (Optional)
+##  Sanity CMS Setup (Optional)
 
 Create a Sanity project and add:
 
@@ -149,7 +149,7 @@ src/lib/projects.ts
 
 ---
 
-## 🎨 Customization
+##  Customization
 
 ### Hero Video
 
@@ -204,7 +204,7 @@ to customize:
 
 ---
 
-## 🎥 Featured Collaborations
+##  Featured Collaborations
 
 - OBEETEE
 - Ravya Arora
@@ -218,7 +218,7 @@ to customize:
 
 ---
 
-## ⚡ Performance Optimizations
+##  Performance Optimizations
 
 - Next.js Image Optimization
 - Lazy Loaded Assets
@@ -263,7 +263,7 @@ Or use the built-in Next.js API route and skip the Express server entirely.
 
 ---
 
-## 📜 License
+##  License
 
 This project was created for **91-11 Productions**.
 
