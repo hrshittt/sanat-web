@@ -103,7 +103,7 @@ export const FEATURED_PROJECTS: Project[] = [
     year: "2024",
     client: "Client",
     heroVideo: "/Adeboy Combined 2 .mp4",
-    poster: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80",
+    poster: "/adeboy.JPEG",
     overview: "Adeboy is a modern footwear brand focused on combining contemporary streetwear aesthetics with everyday comfort and utility.\n\nBuilt for a generation that values both style and identity, Adeboy reflects confidence, creativity, and the evolving culture of fashion.",
     gallery: [
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&q=80",
