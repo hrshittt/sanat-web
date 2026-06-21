@@ -109,9 +109,7 @@ export const FEATURED_PROJECTS: Project[] = [
     heroVideo: "/Adeboy Combined 2.mp4",
     poster: "/adeboy.webp",
     overview: "Adeboy is a modern footwear brand focused on combining contemporary streetwear aesthetics with everyday comfort and utility.\n\nBuilt for a generation that values both style and identity, Adeboy reflects confidence, creativity, and the evolving culture of fashion.",
-    gallery: [
-      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&q=80",
-    ],
+    gallery: [],
     bts: [],
     production: { director: "Sanat Arora", cinematography: "Sanat Arora", edit: "91-11 Post", duration: "1:00", format: "4K" },
     featured: false,
@@ -127,9 +125,7 @@ export const FEATURED_PROJECTS: Project[] = [
     heroVideo: "/Pronto.mp4",
     poster: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1b4?w=1920&q=80",
     overview: "Pronto is a modern cleaning services brand focused on delivering reliable, efficient, and professional solutions with a fresh approach.\n\nSanat Arora and his team were behind Pronto's first-ever advertisement shoot, helping shape the brand's initial visual identity.",
-    gallery: [
-      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&q=80",
-    ],
+    gallery: [],
     bts: [],
     production: { director: "Sanat Arora", cinematography: "Sanat Arora", edit: "91-11 Post", duration: "0:45", format: "4K" },
     featured: true,
@@ -145,9 +141,7 @@ export const FEATURED_PROJECTS: Project[] = [
     heroVideo: "/Fratelli.mp4",
     poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e63?w=1920&q=80",
     overview: "Fratelli Wines is one of India's leading premium wine brands, known for combining international winemaking expertise with Indian terroir.\n\nRepresenting elegance, culture, and elevated experiences, Fratelli Wines stands as a symbol of modern Indian luxury with global appeal.",
-    gallery: [
-      "https://images.unsplash.com/photo-1485846232355-8c050e260f0f?w=1600&q=80",
-    ],
+    gallery: [],
     bts: [],
     production: { director: "Sanat Arora", cinematography: "Sanat Arora", edit: "91-11 Post", duration: "2:00", format: "4K" },
     featured: true,
