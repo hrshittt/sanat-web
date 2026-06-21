@@ -122,7 +122,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
-
+        {/* Gallery Section */}
+        {project.gallery && project.gallery.length > 0 && (
+          <section className="mb-24">
+            <div className="columns-1 md:columns-2 gap-4 md:gap-8 space-y-4 md:space-y-8">
+              {project.gallery.map((imgUrl, index) => (
+                <div key={index} className="relative w-full break-inside-avoid rounded-xl overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-pure-white/5 bg-cinema-black group">
+                  <img
+                    src={imgUrl}
+                    alt={`${project.title} Gallery ${index + 1}`}
+                    loading="lazy"
+                    className="w-full h-auto block object-cover group-hover:scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
       </div>
     </article>
