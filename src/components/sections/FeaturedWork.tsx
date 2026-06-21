@@ -67,7 +67,7 @@ export function FeaturedWork({ projects }: FeaturedWorkProps) {
         style={{ y: parallaxY, scale: 1.15 }}
       >
         <img
-          src="/selected-work-bg.jpeg"
+          src="/selected-work-bg.webp"
           alt="Selected Work Background"
           className="absolute inset-0 h-full w-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]"
         />

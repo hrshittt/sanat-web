@@ -10,7 +10,7 @@ export const FEATURED_PROJECTS: Project[] = [
     year: "2024",
     client: "Client",
     heroVideo: "/Obeetee.mp4",
-    poster: "/obeetee.jpg",
+    poster: "/obeetee.webp",
     overview: "OBEETEE is a luxury handcrafted rug brand known for blending traditional Indian craftsmanship with contemporary design.",
     gallery: [
       "https://images.unsplash.com/photo-1485846232355-8c050e260f0f?w=1600&q=80",
@@ -31,7 +31,7 @@ export const FEATURED_PROJECTS: Project[] = [
     year: "2024",
     client: "Brand",
     heroVideo: "/Twiddles.mp4",
-    poster: "/twiddles.jpg",
+    poster: "/twiddles.webp",
     overview: "Twiddles is a modern snack brand co-founded by Yuvraj Singh, focused on creating healthier and more mindful snacking alternatives.\n\nWith strong branding and a youthful identity, Twiddles stands out through its fresh visual language and modern consumer appeal.",
     gallery: [
       "https://images.unsplash.com/photo-1485846232355-8c050e260f0f?w=1600&q=80",
@@ -49,7 +49,7 @@ export const FEATURED_PROJECTS: Project[] = [
     year: "2024",
     client: "Client",
     heroVideo: "/Kubra.mp4",
-    poster: "/kubra-sait.jpg",
+    poster: "/kubra-sait.webp",
     overview: "Kubra Sait is an actress, host, and performer known for her bold screen presence, versatility, and strong individuality within the industry.\n\nWith a distinct personality and contemporary creative presence, Kubra represents a powerful blend of storytelling, charisma, and talent.",
     gallery: [
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&q=80",
@@ -67,7 +67,7 @@ export const FEATURED_PROJECTS: Project[] = [
     year: "2024",
     client: "Client",
     heroVideo: "/Ashna.mp4",
-    poster: "/ashna-suri.JPEG",
+    poster: "/ashna-suri.webp",
     overview: "Ashna Suri is a digital creator known for her elegant visual presence, lifestyle-driven storytelling, and contemporary fashion sense.\n\nSanat Arora has been creatively collaborating with Ashna for more than 4 years, building a strong visual language together.",
     gallery: [
       "https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=1600&q=80",
@@ -85,7 +85,7 @@ export const FEATURED_PROJECTS: Project[] = [
     year: "2024",
     client: "Client",
     heroVideo: "/Zomato.mp4",
-    poster: "/ravya.jpg",
+    poster: "/ravya.webp",
     overview: "Sanat Arora and Ravya Arora share a long-standing creative collaboration built on storytelling, visual identity, and artistic vision.\n\nWith Sanat's cinematic eye and deep passion for the art of filmmaking, combined with Ravya's strong digital presence and influence.",
     gallery: [
       "https://images.unsplash.com/photo-1618005198919-d0d4f0a9d0e0?w=1600&q=80",
@@ -103,7 +103,7 @@ export const FEATURED_PROJECTS: Project[] = [
     year: "2024",
     client: "Client",
     heroVideo: "/Adeboy Combined 2.mp4",
-    poster: "/adeboy.jpeg",
+    poster: "/adeboy.webp",
     overview: "Adeboy is a modern footwear brand focused on combining contemporary streetwear aesthetics with everyday comfort and utility.\n\nBuilt for a generation that values both style and identity, Adeboy reflects confidence, creativity, and the evolving culture of fashion.",
     gallery: [
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&q=80",
@@ -157,7 +157,7 @@ export const FEATURED_PROJECTS: Project[] = [
     year: "2024",
     client: "Brand",
     heroVideo: "/Novora.mp4",
-    poster: "/novora.jpg",
+    poster: "/novora.webp",
     overview: "Novora is a modern activewear scrubs brand designed for doctors and healthcare professionals who value both comfort and style.\n\nBuilt around movement, confidence, and modern medical culture, Novora brings a fresh and elevated approach to healthcare apparel.",
     gallery: [
       "https://images.unsplash.com/photo-1618005198919-d0d4f0a9d0e0?w=1600&q=80",

@@ -13,8 +13,8 @@ export const SITE = {
 /** Drop files into public/founder/ — IMG_7993.jpg and timeline-1.mp4 */
 export const FOUNDER = {
   name: "Sanat Arora",
-  image: "/founder/IMG_7993.jpg",
-  heroImage: "/founder/img_1111.JPG",
+  image: "/founder/IMG_7993.webp",
+  heroImage: "/founder/img_1111.webp",
   video: "/founder/Timeline 1 (2).mp4",
   roles: ["Visual Storyteller.", "Filmmaker.", "Founder of 91-11 Productions."],
   openingQuote: "Cinema begins long before the camera starts rolling.",
