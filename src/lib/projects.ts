@@ -9,7 +9,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Luxury handcrafted rug brand",
     year: "2024",
     client: "Client",
-    heroVideo: "/obeetee.mp4",
+    heroVideo: "/Obeetee.mp4",
     poster: "/obeetee.jpg",
     overview: "OBEETEE is a luxury handcrafted rug brand known for blending traditional Indian craftsmanship with contemporary design.",
     gallery: [
@@ -30,7 +30,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Modern snack brand",
     year: "2024",
     client: "Brand",
-    heroVideo: "/twiddles.mp4",
+    heroVideo: "/Twiddles.mp4",
     poster: "/twiddles.jpg",
     overview: "Twiddles is a modern snack brand co-founded by Yuvraj Singh, focused on creating healthier and more mindful snacking alternatives.\n\nWith strong branding and a youthful identity, Twiddles stands out through its fresh visual language and modern consumer appeal.",
     gallery: [
@@ -48,7 +48,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Actress and performer",
     year: "2024",
     client: "Client",
-    heroVideo: "/kubra.mp4",
+    heroVideo: "/Kubra.mp4",
     poster: "/kubra-sait.jpg",
     overview: "Kubra Sait is an actress, host, and performer known for her bold screen presence, versatility, and strong individuality within the industry.\n\nWith a distinct personality and contemporary creative presence, Kubra represents a powerful blend of storytelling, charisma, and talent.",
     gallery: [
@@ -66,7 +66,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Digital creator",
     year: "2024",
     client: "Client",
-    heroVideo: "/ashna.mp4",
+    heroVideo: "/Ashna.mp4",
     poster: "/ashna-suri.JPEG",
     overview: "Ashna Suri is a digital creator known for her elegant visual presence, lifestyle-driven storytelling, and contemporary fashion sense.\n\nSanat Arora has been creatively collaborating with Ashna for more than 4 years, building a strong visual language together.",
     gallery: [
@@ -84,7 +84,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Creative collaboration",
     year: "2024",
     client: "Client",
-    heroVideo: "/Zomato.MP4",
+    heroVideo: "/Zomato.mp4",
     poster: "/ravya.jpg",
     overview: "Sanat Arora and Ravya Arora share a long-standing creative collaboration built on storytelling, visual identity, and artistic vision.\n\nWith Sanat's cinematic eye and deep passion for the art of filmmaking, combined with Ravya's strong digital presence and influence.",
     gallery: [
@@ -102,8 +102,8 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Modern footwear brand",
     year: "2024",
     client: "Client",
-    heroVideo: "/Adeboy Combined 2 .mp4",
-    poster: "/adeboy.JPEG",
+    heroVideo: "/Adeboy Combined 2.mp4",
+    poster: "/adeboy.jpeg",
     overview: "Adeboy is a modern footwear brand focused on combining contemporary streetwear aesthetics with everyday comfort and utility.\n\nBuilt for a generation that values both style and identity, Adeboy reflects confidence, creativity, and the evolving culture of fashion.",
     gallery: [
       "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1600&q=80",
@@ -120,7 +120,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Modern cleaning services",
     year: "2024",
     client: "Client",
-    heroVideo: "/pronto.mp4",
+    heroVideo: "/Pronto.mp4",
     poster: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1b4?w=1920&q=80",
     overview: "Pronto is a modern cleaning services brand focused on delivering reliable, efficient, and professional solutions with a fresh approach.\n\nSanat Arora and his team were behind Pronto's first-ever advertisement shoot, helping shape the brand's initial visual identity.",
     gallery: [
@@ -138,7 +138,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Premium wine brand",
     year: "2024",
     client: "Brand",
-    heroVideo: "/fratelli.mp4",
+    heroVideo: "/Fratelli.mp4",
     poster: "https://images.unsplash.com/photo-1478720568477-152d9b164e63?w=1920&q=80",
     overview: "Fratelli Wines is one of India's leading premium wine brands, known for combining international winemaking expertise with Indian terroir.\n\nRepresenting elegance, culture, and elevated experiences, Fratelli Wines stands as a symbol of modern Indian luxury with global appeal.",
     gallery: [
@@ -156,7 +156,7 @@ export const FEATURED_PROJECTS: Project[] = [
     tagline: "Modern activewear scrubs",
     year: "2024",
     client: "Brand",
-    heroVideo: "/novora.mp4",
+    heroVideo: "/Novora.mp4",
     poster: "/novora.jpg",
     overview: "Novora is a modern activewear scrubs brand designed for doctors and healthcare professionals who value both comfort and style.\n\nBuilt around movement, confidence, and modern medical culture, Novora brings a fresh and elevated approach to healthcare apparel.",
     gallery: [
