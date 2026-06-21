@@ -104,11 +104,6 @@ export const SERVICES = [
     description: "Clean, conversion-focused content optimized for online stores, marketplaces, and digital catalogs. Consistent visuals that enhance customer confidence and improve product presentation."
   },
   {
-    title: "Personal Branding",
-    tagline: "Presence with purpose. Influence with impact.",
-    description: "Content designed to establish authority, credibility, and a distinctive personal identity. Ideal for founders, creators, executives, artists, and public figures looking to grow their presence."
-  },
-  {
     title: "Documentary Storytelling",
     tagline: "Truth, framed with intention.",
     description: "Authentic, human-centered storytelling that uncovers real experiences, journeys, and perspectives. We create documentaries that inform, inspire, and leave a lasting impact."
@@ -174,7 +169,6 @@ export const PROJECT_TYPES = [
   "Product Film",
   "Documentary",
   "Artist Shoot",
-  "Personal Branding",
   "Reels / Short Form",
   "Other",
 ] as const;
