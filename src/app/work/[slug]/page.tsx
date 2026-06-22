@@ -116,7 +116,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             >
               <source src={project.heroVideo} type="video/mp4" />
             </video>
-            
+
             {/* Cinematic Red Glow Behind Video */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(214,31,38,0.1),transparent_70%)] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           </div>
