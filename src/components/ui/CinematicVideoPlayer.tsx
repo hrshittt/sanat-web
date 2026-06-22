@@ -95,7 +95,6 @@ export function CinematicVideoPlayer({
         className={`absolute inset-0 h-full w-full cursor-pointer ${
           isFullscreen ? "object-contain" : "object-cover"
         }`}
-        poster={poster}
         playsInline
         onClick={togglePlay}
         preload="metadata"

@@ -43,7 +43,6 @@ export function ProjectHero({ project }: ProjectHeroProps) {
         loop
         playsInline
         preload="metadata"
-        poster={project.poster}
       >
         <source src={project.heroVideo} type="video/mp4" />
       </video>

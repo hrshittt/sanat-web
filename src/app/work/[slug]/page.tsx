@@ -112,7 +112,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               controls
               playsInline
               preload="metadata"
-              poster={project.poster}
             >
               <source src={project.heroVideo} type="video/mp4" />
             </video>

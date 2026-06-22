@@ -55,15 +55,14 @@ export function Hero() {
       data-cursor-section="about"
       className="relative h-[100svh] min-h-[600px] w-full overflow-hidden z-10 bg-cinema-black"
     >
-      <div ref={videoWrapRef} className="absolute inset-0 gpu will-change-transform">
+      <div ref={videoWrapRef} className="absolute inset-0 overflow-hidden">
         <video
-          className="absolute inset-0 h-full w-full object-cover scale-110"
+          className="absolute inset-0 h-full w-full object-cover scale-[1.02]"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
-          poster="https://images.unsplash.com/photo-1478720568477-152d9b164e63?w=1920&q=80"
+          preload="auto"
         >
           <source src={HERO_VIDEO} type="video/mp4" />
         </video>
@@ -76,7 +75,8 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-cinema-black/60 via-transparent to-cinema-black z-[1]" />
       <div className="absolute inset-0 bg-gradient-to-r from-cinema-black/80 via-transparent to-transparent z-[1]" />
 
-      <HeroAmbient />
+      {/* HeroAmbient disabled to drastically improve video playback performance */}
+      {/* <HeroAmbient /> */}
 
       <div
         ref={contentRef}
