@@ -95,7 +95,7 @@ export function Contact() {
   }
 
   const inputClass =
-    "form-field w-full bg-cinema-charcoal/50 border-b border-cinema-charcoal py-4 px-0 text-pure-white placeholder:text-silver-dim focus:border-cinema-red outline-none transition-colors duration-500 text-sm";
+    "form-field w-full bg-cinema-charcoal/50 border border-cinema-charcoal rounded-md py-4 px-4 text-pure-white placeholder:text-silver-dim focus:border-cinema-red outline-none transition-colors duration-500 text-sm";
 
   return (
     <section
@@ -247,7 +247,7 @@ export function Contact() {
               type="submit"
               disabled={status === "loading"}
               data-cursor="magnetic"
-              className="w-full text-label bg-cinema-black border border-pure-white/20 text-pure-white px-10 py-5 mt-4 hover:bg-pure-white hover:text-cinema-black transition-all duration-500 disabled:opacity-50 shadow-2xl relative z-50"
+              className="w-full text-label bg-cinema-black border border-pure-white/20 rounded-md text-pure-white px-10 py-5 mt-4 hover:bg-pure-white hover:text-cinema-black transition-all duration-500 disabled:opacity-50 shadow-2xl relative z-50"
             >
               {status === "loading" ? "Sending..." : "Submit Inquiry"}
             </button>
