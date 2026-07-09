@@ -34,4 +34,5 @@ export interface Project {
   production: ProjectProduction;
   featured?: boolean;
   order?: number;
+  containPoster?: boolean;
 }

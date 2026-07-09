@@ -87,7 +87,7 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
               src={project.poster}
               alt={project.title}
               fill
-              className="object-cover transition-all duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+              className={`transition-all duration-[1.5s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 ${project.containPoster ? 'object-contain p-12 bg-white/5' : 'object-cover'}`}
               sizes="(max-width: 768px) 100vw, 60vw"
               unoptimized
             />

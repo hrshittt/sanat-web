@@ -85,13 +85,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Hero Media */}
         <section className="mb-24">
-          <div className="w-full aspect-[16/9] md:aspect-[2.35/1] bg-cinema-black relative overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] ring-1 ring-pure-white/10">
+          <div className={`w-full bg-cinema-black relative overflow-hidden rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] ring-1 ring-pure-white/10 ${project.containPoster ? 'aspect-[16/9] md:aspect-[16/9]' : 'aspect-[16/9] md:aspect-[2.35/1]'}`}>
             {project.poster ? (
               <Image
                 src={project.poster}
                 alt={`${project.title} Hero`}
                 fill
-                className="object-cover"
+                className={`${project.containPoster ? 'object-contain scale-125 p-2 md:p-4 bg-white/5' : 'object-cover'}`}
                 sizes="(max-width: 1024px) 100vw, 1024px"
                 priority
               />
